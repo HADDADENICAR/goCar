@@ -54,12 +54,12 @@ namespace CarRenting
                                                  .ToList();
 
                 var openAgenciesAtEnd = context.Agencies
-                                                 .Where(a => a.Week.WeekDays.Any(d=>d.Day == startDate.DayOfWeek.ToString() && d.StartTime.Hours<= startDate.Hour && d.EndTime.Hours>startDate.Hour))
+                                                 .Where(a => a.Week.WeekDays.Any(d=>d.Day == endDate.DayOfWeek.ToString() && d.StartTime.Hours<= endDate.Hour && d.EndTime.Hours>endDate.Hour))
                                                  .Include(a=>a.City)
                                                  .ToList();
 
 
-                return openAgenciesAtStart.Union(openAgenciesAtEnd).ToList();
+                return openAgenciesAtStart.Intersect(openAgenciesAtEnd).ToList();
             }
         }
         protected void AgencyRepeater_ItemDataBound(Object Sender, RepeaterItemEventArgs e)
