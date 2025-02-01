@@ -1,4 +1,4 @@
-To run these project follow these steps :<br/>
+To run the project follow these steps :<br/>
 1.customize the connection string in web.config :<br/>
     <add name="DefaultConnection" connectionString="Server=.\SQLEXPRESS;Database=CarRentalDb;Trusted_Connection=True;" providerName="System.Data.SqlClient" />
 2.in package manager run : Update-DataBase<br/>
